@@ -9,15 +9,23 @@ export default function TeachersPage() {
   const [selectedTeacher, setSelectedTeacher] = useState(null);
   const [courses, setCourses] = useState([])
 
-  useEffect(() => {
-    async function fetchTeachers() {
+  async function fetchTeachers() {
       const res = await fetch("/api/teachers");
       const data = await res.json();
       // If API returns { teachers: [...] }
       setTeachers(data);
     }
 
+  // Courses
+  async function fetchCourses() {
+    const res = await fetch("/api/courses")
+    const data = await res.json()
+    setCourses(data)
+  }
+
+  useEffect(() => {
     fetchTeachers();
+    fetchCourses();
   }, []);
 
 

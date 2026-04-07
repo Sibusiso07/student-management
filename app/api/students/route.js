@@ -6,13 +6,15 @@ export async function GET() {
 
     const query = `
       SELECT 
-        users.id,
+        students.id,
         students.first_name,
         students.last_name,
         students.phone,
-        users.email
+        users.email,
+        course_students.status
       FROM students
       JOIN users ON students.user_id = users.id
+      JOIN course_students ON course_students.student_id = students.id
       WHERE users.role = 'STUDENT'
     `
 

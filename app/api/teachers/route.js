@@ -6,7 +6,7 @@ export async function GET() {
 
     const query = `
       SELECT 
-        users.id,
+        teachers.id,
         teachers.first_name,
         teachers.last_name,
         users.email,
@@ -15,7 +15,7 @@ export async function GET() {
         courses.name AS course_name
       FROM teachers
       JOIN users ON teachers.user_id = users.id
-      LEFT JOIN courses ON teachers.course_id = courses.id
+      JOIN courses ON teachers.course_id = courses.id
       WHERE users.role = 'TEACHER'
     `
 

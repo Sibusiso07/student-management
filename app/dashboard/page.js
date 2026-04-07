@@ -23,6 +23,7 @@ export default async function DashboardPage() {
   const [students, teachers] = await Promise.all([
     fetchData(`${baseUrl}/api/students`),
     fetchData(`${baseUrl}/api/teachers`),
+    fetchData(`${baseUrl}/api/courses`),
   ]);
 
   return (
