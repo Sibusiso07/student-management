@@ -32,7 +32,6 @@ export default function UsersPage() {
           {/* HEAD */}
           <thead className="bg-gray-50 border-b border-gray-200">
             <tr className="text-gray-600 uppercase text-xs tracking-wider">
-              <th className="px-6 py-4">Name</th>
               <th className="px-6 py-4">Email</th>
               <th className="px-6 py-4">Role</th>
               <th className="px-6 py-4">Status</th>
@@ -44,10 +43,6 @@ export default function UsersPage() {
           <tbody className="divide-y">
             {users.map((user) => (
               <tr key={user.id} className="hover:bg-gray-50">
-
-                <td className="px-6 py-4 font-medium text-gray-800">
-                  {user.first_name} {user.last_name}
-                </td>
 
                 <td className="px-6 py-4 text-gray-800">
                   {user.email}

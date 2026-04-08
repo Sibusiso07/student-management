@@ -20,7 +20,7 @@ export default async function DashboardPage() {
   const baseUrl =
     process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
 
-  const [students, teachers] = await Promise.all([
+  const [students, teachers, courses] = await Promise.all([
     fetchData(`${baseUrl}/api/students`),
     fetchData(`${baseUrl}/api/teachers`),
     fetchData(`${baseUrl}/api/courses`),
@@ -32,6 +32,8 @@ export default async function DashboardPage() {
       name={name}
       studentCount={students.length || 0}
       teacherCount={teachers.length || 0}
+      coursesCount={courses.length || 0}
     />
   );
 }
+

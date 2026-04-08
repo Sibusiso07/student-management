@@ -8,6 +8,7 @@ export default function DashboardClient({
   name,
   studentCount,
   teacherCount,
+  coursesCount,
 }) {
   const [open, setOpen] = useState(false);
 
@@ -69,7 +70,7 @@ export default function DashboardClient({
             Courses
           </h2>
           <p className="text-3xl font-bold mt-3 text-black">
-            0
+            {coursesCount}
           </p>
         </div>
       </div>
