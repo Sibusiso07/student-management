@@ -15,12 +15,12 @@ export async function GET() {
         courses.name AS course_name
       FROM teachers
       JOIN users ON teachers.user_id = users.id
-      JOIN courses ON teachers.course_id = courses.id
+      LEFT JOIN courses ON teachers.course_id = courses.id
       WHERE users.role = 'TEACHER'
     `
 
     const result = await pool.query(query)
-    console.log(result.rows)
+    console.log(result.rowCount)
 
     return NextResponse.json(result.rows)
 

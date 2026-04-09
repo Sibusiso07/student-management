@@ -11,14 +11,18 @@ export async function GET() {
         students.last_name,
         students.phone,
         users.email,
-        course_students.status
+        course_students.status,
+        course_students.course_id,
+        courses.name AS course_name
       FROM students
       JOIN users ON students.user_id = users.id
-      JOIN course_students ON course_students.student_id = students.id
+      LEFT JOIN course_students ON course_students.student_id = students.id
+      LEFT JOIN courses ON course_students.course_id = courses.id
       WHERE users.role = 'STUDENT'
     `
 
     const result = await pool.query(query)
+
 
     return NextResponse.json(result.rows)
 

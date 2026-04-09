@@ -11,7 +11,6 @@ export async function POST(req) {
       first_name,
       last_name,
       phone,
-      subject,
       date_of_birth,
     } = await req.json();
 
@@ -36,9 +35,9 @@ export async function POST(req) {
 
     if (role === "TEACHER") {
       await pool.query(
-        `INSERT INTO teachers (user_id, first_name, last_name, subject, phone)
-         VALUES ($1,$2,$3,$4,$5)`,
-        [userId, first_name, last_name, subject, phone]
+        `INSERT INTO teachers (user_id, first_name, last_name, phone)
+         VALUES ($1,$2,$3,$4)`,
+        [userId, first_name, last_name, phone]
       );
     }
 

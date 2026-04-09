@@ -10,7 +10,6 @@ export default function CreateUserModal({ isOpen, onClose, onSuccess }) {
     first_name: "",
     last_name: "",
     phone: "",
-    subject: "",
     date_of_birth: "",
   });
 
@@ -108,16 +107,6 @@ export default function CreateUserModal({ isOpen, onClose, onSuccess }) {
           />
 
           {/* CONDITIONAL FIELDS */}
-
-          {/* Teacher only */}
-          {role === "TEACHER" && (
-            <input
-              name="subject"
-              placeholder="Subject"
-              onChange={handleChange}
-              className="w-full p-3 mb-4 border rounded-md border-black text-black"
-            />
-          )}
 
           {/* Admin & Teacher */}
           {(role === "ADMIN" || role === "TEACHER" || role === "STUDENT") && (

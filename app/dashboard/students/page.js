@@ -48,6 +48,7 @@ export default function StudentsPage() {
               <th className="px-6 py-4">Name</th>
               <th className="px-6 py-4">Email</th>
               <th className="px-6 py-4">Phone</th>
+              <th className="px-6 py-4">Course Name</th>
               <th className="px-6 py-4">Course Status</th>
               <th className="px-6 py-4 text-right">Actions</th>
             </tr>
@@ -72,6 +73,10 @@ export default function StudentsPage() {
                   {student.phone || "—"}
                 </td>
 
+                <td className="px-6 py-4 text-gray-600">
+                  {student.course_name || "—"}
+                </td>
+
                 {/* ✅ Status Badge */}
                 <td className="px-6 py-4">
                   <span className={`px-3 py-1 rounded-full text-xs font-medium ${
@@ -88,7 +93,7 @@ export default function StudentsPage() {
                 </td>
 
                 {/* ✅ Action Button (correct place) */}
-                <td className="px-6 py-4 text-right">
+                <td className="px-2 py-4 text-right">
                   <button
                     onClick={() => {
                       setSelectedStudent(student)
